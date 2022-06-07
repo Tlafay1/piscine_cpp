@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:49:05 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/06 17:44:27 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/07 16:53:20 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Form::Form(const std::string &name, const int &signGrade,
 {
 	std::cout << "Form constructor called" << std::endl;
 	if (_signGrade > 150 || _execGrade > 150)
-		throw Form::GradeTooLowException();
+		throw Form::GradeTooLowException((char *)"Grade is invalid");
 	if (_signGrade < 1 || _execGrade < 1)
-		throw Form::GradeTooHighException();
+		throw Form::GradeTooHighException((char *)"Grade is invalid");
 }
 
 Form::Form(const Form &f): _name(""), _signGrade(f._signGrade),
@@ -46,14 +46,34 @@ void	Form::operator=(const Form &f)
 	_signed = f._signed;
 }
 
+Form::GradeTooHighException::GradeTooHighException(char *msg): _msg(msg)
+{
+
+}
+
+Form::GradeTooLowException::GradeTooLowException(char *msg): _msg(msg)
+{
+
+}
+
+Form::IsntSignedException::IsntSignedException(char *msg): _msg(msg)
+{
+	
+}
+
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Form grade is too high");
+	return (_msg);
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Form grade is too low");
+	return (_msg);
+}
+
+const char	*Form::IsntSignedException::what() const throw()
+{
+	return (_msg);
 }
 
 std::string	Form::getName() const
@@ -81,7 +101,17 @@ void	Form::beSigned(const Bureaucrat &f)
 	if (f.getGrade() <= _signGrade)
 		_signed = true;
 	else
-		throw Form::GradeTooLowException();
+		throw Form::GradeTooLowException((char *)"Bureaucrat"
+			" doesn't have permissions to sign");
+}
+
+void	Form::isExecutable(const Bureaucrat &f)
+{
+	if (!this->getSigned())
+		throw Form::IsntSignedException((char *)"The form hasn't been signed");
+	if (this->getExecGrade() < f.getGrade())
+		throw Form::GradeTooLowException((char *)"Bureaucrat"
+			" doesn't have permissions to execute");
 }
 
 std::ostream& operator<< (std::ostream& os, const Form& rhs)

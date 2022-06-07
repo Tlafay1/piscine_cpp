@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:37:49 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/06 17:50:45 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/07 17:22:16 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FORM_HPP
 
 #include <iostream>
+#include <fstream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -29,7 +30,8 @@ class Form
 
 		void	operator=(const Form &f);
 
-		void	beSigned(const Bureaucrat &f);
+		void			beSigned(const Bureaucrat &f);
+		void			isExecutable(const Bureaucrat &f);
 		virtual void	execute(Bureaucrat const &executor) = 0;
 
 		std::string	getName() const;
@@ -41,13 +43,31 @@ class Form
 		class GradeTooHighException: public std::exception
 		{
 			public:
+				GradeTooHighException(char *msg);
 				const char *what() const throw();
+
+			private:
+				char	*_msg;
 		};
 
 		class GradeTooLowException: public std::exception
 		{
 			public:
+				GradeTooLowException(char *msg);
 				const char *what() const throw();
+
+			private:
+				char	*_msg;
+		};
+
+		class IsntSignedException: public std::exception
+		{
+			public:
+				IsntSignedException(char *msg);
+				const char *what() const throw();
+
+			private:
+				char	*_msg;
 		};
 
 	private:

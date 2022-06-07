@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:21:36 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/06 17:50:48 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/07 17:28:03 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target):
-	Form("Shrubbery Creation", 145, 137)
+	Form("Shrubbery Creation Form", 145, 137)
 {
 	_target = target;
 }
@@ -44,11 +44,40 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
 	try
 	{
-		this->beSigned(executor);
-		std::cout << "It's cool" << std::endl;
+		this->isExecutable(executor);
+		std::ofstream	file;
+		file.open(_target + "_shrubbery");
+		std::string	tree;
+		tree = "                      ___\n"
+		"                _,-'\"\"   \"\"\"\"`--.\n"
+		"             ,-'          __,,-- \\\n"
+		"           ,'    __,--\"\"\"\"dF      )\n"
+		"          /   .-\"Hb_,--\"\"dF      /\n"
+		"        ,'       _Hb ___dF\"-._,-'\n"
+		"      ,'      _,-\"\"\"\"   \"\"--..__\n"
+		"     (     ,-'                  `.\n"
+		"      `._,'     _   _             ;\n"
+		"       ,'     ,' `-'Hb-.___..._,-'\n"
+		"       \\    ,'\"Hb.-'HH`-.dHF\"\n"
+		"        `--'   \"Hb  HH  dF\"\n"
+		"                \"Hb HH dF\n"
+		"                 \"HbHHdF\n"
+		"                  |HHHF\n"
+		"                  |HHH|\n"
+		"                  |HHH|\n"
+		"                  |HHH|\n"
+		"                  |HHH|\n"
+		"                  dHHHb\n"
+		"                .dFd|bHb.               o\n"
+		"      o       .dHFdH|HbTHb.          o /\n"
+		"\\  Y  |  \\__,dHHFdHH|HHhoHHb.__Krogg  Y\n"
+		"##########################################\n";
+
+		file << tree;
+		file.close();
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		throw;
 	}
 }
