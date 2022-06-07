@@ -6,9 +6,12 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 17:17:00 by tlafay            #+#    #+#             */
-/*   Updated: 2022/05/13 16:00:42 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/07 14:55:45 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 #include <iostream>
 #include <cmath>
@@ -24,11 +27,13 @@ class Fixed
 
 		void 	operator=(const Fixed &f);
 		Fixed	operator++(int);
+		Fixed	operator--(int);
 		Fixed	operator+(const Fixed &f);
 		Fixed	operator-(const Fixed &f);
 		Fixed	operator*(const Fixed &f);
 		Fixed	operator/(const Fixed &f);
 		Fixed	operator++();
+		Fixed	operator--();
 		bool	operator==(const Fixed &f);
 		bool	operator!=(const Fixed &f);
 		bool	operator<(const Fixed &f);
@@ -52,3 +57,5 @@ class Fixed
 };
 
 std::ostream&	operator<<(std::ostream &os, const Fixed &f);
+
+#endif

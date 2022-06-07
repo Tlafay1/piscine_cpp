@@ -21,7 +21,7 @@ $(NAME) : $(OBJDIR)
 
 obj/%.o : src/%.cpp $(INCLUDES) Makefile
 	mkdir -p obj
-	$(CC) -c $< -I includes $(CFLAGS) -o $@
+	$(CC) -c $< -I includes $(CPPFLAGS) -o $@
 
 clean :
 	$(RM) $(OBJDIR)

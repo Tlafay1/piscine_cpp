@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 
 class Fixed
@@ -27,3 +30,5 @@ class Fixed
 		int					_value;
 		static const int	_bits = 8;
 };
+
+#endif
