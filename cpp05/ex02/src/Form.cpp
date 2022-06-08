@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 13:49:05 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/07 16:53:20 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/08 11:49:59 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,17 +101,21 @@ void	Form::beSigned(const Bureaucrat &f)
 	if (f.getGrade() <= _signGrade)
 		_signed = true;
 	else
-		throw Form::GradeTooLowException((char *)"Bureaucrat"
-			" doesn't have permissions to sign");
+	{
+		std::string	msg = f.getName() + " doesn't have permissions to sign";
+		throw Form::GradeTooLowException((char *)msg.c_str());
+	}
 }
 
 void	Form::isExecutable(const Bureaucrat &f)
 {
 	if (!this->getSigned())
-		throw Form::IsntSignedException((char *)"The form hasn't been signed");
+		throw Form::IsntSignedException((char *)"the form hasn't been signed");
 	if (this->getExecGrade() < f.getGrade())
-		throw Form::GradeTooLowException((char *)"Bureaucrat"
-			" doesn't have permissions to execute");
+	{
+		std::string	msg = f.getName() + " doesn't have permissions to execute";
+		throw Form::GradeTooLowException((char *)msg.c_str());
+	}
 }
 
 std::ostream& operator<< (std::ostream& os, const Form& rhs)

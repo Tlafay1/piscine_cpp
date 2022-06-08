@@ -6,21 +6,30 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:32:57 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/07 16:46:24 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/08 11:58:06 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
+//Bureaucrat.cpp:95
 
 int main(void)
 {
-	ShrubberyCreationForm abc("Salut");
-	Bureaucrat Bob("Bob", 12);
+	PresidentialPardonForm	p("P form");
+	RobotomyRequestForm		r("R form");
+	ShrubberyCreationForm	s("S form");
+
+	
+	Bureaucrat	Bob("Bob", 12);
+	Bureaucrat	Jim("Jim", 10);
 	try
 	{
-		abc.beSigned(Bob);
-		abc.execute(Bob);
+		Bob.signForm(s);
+		Jim.executeForm(s);
 	}
 	catch(std::exception &e)
 	{

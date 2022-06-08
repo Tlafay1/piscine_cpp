@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:23:08 by tlafay            #+#    #+#             */
-/*   Updated: 2022/05/31 16:41:21 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/08 13:17:19 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Bureaucrat
 		void	operator=(const Bureaucrat &f);
 
 		void	signForm(Form &f);
+		void	executeForm(Form &f);
 
 		std::string	getName() const;
 		int			getGrade() const;

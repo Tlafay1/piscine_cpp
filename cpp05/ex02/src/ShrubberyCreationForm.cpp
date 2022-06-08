@@ -12,7 +12,7 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm(): _target("")
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -37,7 +37,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &f)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	(void)f;
+	_target = f._target;
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor)

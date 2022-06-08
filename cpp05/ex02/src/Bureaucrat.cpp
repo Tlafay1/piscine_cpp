@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:38:25 by tlafay            #+#    #+#             */
-/*   Updated: 2022/05/31 16:42:42 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/08 13:46:36 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,20 @@ void	Bureaucrat::signForm(Form &f)
 	{
 		std::cout << _name + " couldn't sign " + f.getName()
 			+ " because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(Form &f)
+{
+	try
+	{
+		f.execute(*this);
+		std::cout << _name + " executed " + f.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << _name << " couldn't execute " << f.getName()
+			<< " because " << e.what() << std::endl;
 	}
 }
 
