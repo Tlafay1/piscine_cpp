@@ -14,7 +14,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(): _target("")
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target):
@@ -25,18 +25,18 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target):
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &f)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
 	*this = f;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
 void	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &f)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
 	_target = f._target;
 }
 

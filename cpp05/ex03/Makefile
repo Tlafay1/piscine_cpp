@@ -2,17 +2,19 @@ CC = c++
 
 NAME := Intern
 
-CPPFLAGS := -Wall -Wextra -Werror -std=c++98
+CPPFLAGS := -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRCS := Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp\
-		RobotomyRequestForm.cpp ShrubberyCreationForm.cpp main.cpp
+		RobotomyRequestForm.cpp ShrubberyCreationForm.cpp\
+		main.cpp Intern.cpp
 
 OBJS := ${SRCS:.cpp=.o}
 
 OBJDIR := $(addprefix obj/, $(OBJS))
 
 INCLUDES := Bureaucrat.hpp Form.hpp PresidentialPardonForm.hpp\
-			RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
+			RobotomyRequestForm.hpp ShrubberyCreationForm.hpp\
+			Intern.hpp
 
 INCDIR := $(addprefix includes/, $(INCLUDES))
 

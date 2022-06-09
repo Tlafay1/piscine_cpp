@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:21:36 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/09 14:06:03 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/09 16:12:03 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm(): _target("")
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target):
@@ -25,18 +25,18 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const &target):
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &f)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 	*this = f;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
 void	RobotomyRequestForm::operator=(const RobotomyRequestForm &f)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "RobotomyRequestForm copy assignment operator called" << std::endl;
 	_target = f._target;
 }
 

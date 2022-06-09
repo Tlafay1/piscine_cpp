@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:32:57 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/08 11:58:06 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/09 16:03:40 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,26 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 //Bureaucrat.cpp:95
 
 int main(void)
 {
-	PresidentialPardonForm	p("P form");
-	RobotomyRequestForm		r("R form");
-	ShrubberyCreationForm	s("S form");
-
+	Intern someRandomIntern;
+	Bureaucrat Bob("Bob", 1);
+	Form* rrf;
+	rrf = someRandomIntern.makeForm("weird stuff", "Bender");
+	try
 	{
-		Bureaucrat	Bob("Bob", 12);
-		Bureaucrat	Jim("Jim", 10);
-		try
-		{
-			Bob.signForm(p);
-			Jim.executeForm(p);
-		}
-		catch(std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+		if (!rrf)
+			return (0);
+		rrf->beSigned(Bob);
+		rrf->execute(Bob);
+		delete rrf;
 	}
+	catch (std::exception &e)
 	{
-		Bureaucrat	Bob("Bob", 12);
-		Bureaucrat	Jim("Jim", 10);
-		try
-		{
-			Bob.signForm(r);
-			Jim.executeForm(r);
-		}
-		catch(std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+		std::cout << e.what() << std::endl;
 	}
-	{
-		Bureaucrat	Bob("Bob", 12);
-		Bureaucrat	Jim("Jim", 10);
-		try
-		{
-			Bob.signForm(s);
-			Jim.executeForm(s);
-		}
-		catch(std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-	}
-	return 0;
 }
