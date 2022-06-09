@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:21:36 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/08 17:56:12 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/09 14:06:03 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void	RobotomyRequestForm::operator=(const RobotomyRequestForm &f)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
+	_target = f._target;
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor)
@@ -46,9 +47,11 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor)
 		this->isExecutable(executor);
 		srand(time(NULL));
 		std::cout << "BBBBBRRRRRRVVVVVVVVVVVV" << std::endl;
-		if ((float) rand() / RAND_MAX)
+		int num = rand() % 2;
+		std::cout << num << std::endl;
+		if (num)
 		{
-			std::cout << _target + "were successfully "
+			std::cout << _target + " were successfully "
 				"robotomised. Yikes." << std::endl;
 		}
 		else

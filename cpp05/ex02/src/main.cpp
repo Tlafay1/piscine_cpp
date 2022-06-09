@@ -23,17 +23,44 @@ int main(void)
 	RobotomyRequestForm		r("R form");
 	ShrubberyCreationForm	s("S form");
 
-	
-	Bureaucrat	Bob("Bob", 12);
-	Bureaucrat	Jim("Jim", 10);
-	try
 	{
-		Bob.signForm(s);
-		Jim.executeForm(s);
+		Bureaucrat	Bob("Bob", 12);
+		Bureaucrat	Jim("Jim", 10);
+		try
+		{
+			Bob.signForm(p);
+			Jim.executeForm(p);
+		}
+		catch(std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
-	catch(std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
-	}	
+		Bureaucrat	Bob("Bob", 12);
+		Bureaucrat	Jim("Jim", 10);
+		try
+		{
+			Bob.signForm(r);
+			Jim.executeForm(r);
+		}
+		catch(std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
+	{
+		Bureaucrat	Bob("Bob", 12);
+		Bureaucrat	Jim("Jim", 10);
+		try
+		{
+			Bob.signForm(s);
+			Jim.executeForm(s);
+		}
+		catch(std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
 	return 0;
 }

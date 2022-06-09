@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:21:38 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/08 17:51:41 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/09 14:02:37 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <ctime>
 #include <cstdlib>
 
-class RobotomyRequestForm
+class RobotomyRequestForm: public Form
 {
 	public:
 		RobotomyRequestForm();
