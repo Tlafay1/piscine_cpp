@@ -14,13 +14,8 @@
 # define CONVERT_HPP
 
 #include <iostream>
-#include <cstdlib>
 #include <iomanip>
-#include <climits>
-#include <cfloat>
 #include <cmath>
-#include <string>
-#include <sstream>
 
 class Convert
 {
@@ -32,9 +27,10 @@ class Convert
 
 		void	operator=(const Convert &f);
 
+		void	print();
+
 	private:
 		double	_num;
-		int		_err;
 
 		void	print_char();
 		void	print_int();
