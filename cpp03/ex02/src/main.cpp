@@ -19,6 +19,7 @@ int main()
 	FragTrap a("James");
 	a.attack("Bob");
 	a.takeDamage(20);
+	a.takeDamage(2000);
 	a.beRepaired(5);
 	a.highFivesGuys();
 	return 0;

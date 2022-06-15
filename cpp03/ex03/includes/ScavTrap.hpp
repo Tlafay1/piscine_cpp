@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:34:50 by tlafay            #+#    #+#             */
-/*   Updated: 2022/05/20 15:03:16 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/15 09:15:51 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ScavTrap: virtual public ClapTrap
 
 		void	operator=(const ScavTrap &f);
 
+		void	attack(const std::string& target);
 		void	guardGate();
 
 	private:

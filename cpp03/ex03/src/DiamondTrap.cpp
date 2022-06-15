@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap(): _name("")
 
 DiamondTrap::DiamondTrap(const std::string name): _name(name)
 {
-	ClapTrap::_name = "_clap_name";
+	ClapTrap::_name = name + "_clap_name";
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &f)

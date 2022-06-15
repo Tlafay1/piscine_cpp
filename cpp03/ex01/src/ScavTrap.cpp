@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:59:58 by tlafay            #+#    #+#             */
-/*   Updated: 2022/05/19 15:48:32 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/15 09:12:05 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,26 @@ void	ScavTrap::operator=(const ScavTrap &f)
 	_HitPoints = f._HitPoints;
 	_EnergyPoints = f._EnergyPoints;
 	_AttackDamage = f._AttackDamage;
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (_HitPoints <= 0)
+	{
+		std::cout << _name + " has no hitpoints left !" << std::endl;
+		return ;
+	}
+	if (_EnergyPoints <= 0)
+	{
+		std::cout << _name + " has no energy points left !" << std::endl;
+		return ;
+	}
+	std::cout << "ScavTrap " + _name + " attacks " + target +  ", causing "
+	<< _AttackDamage << " points of damage!" << std::endl;
+	_EnergyPoints--;
+	std::cout << _name + " now has " << _HitPoints << " hitpoints and "
+		<< _EnergyPoints << " energy points" << std::endl;
+
 }
 
 void	ScavTrap::guardGate()

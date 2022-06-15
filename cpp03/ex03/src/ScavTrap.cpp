@@ -51,6 +51,26 @@ void	ScavTrap::operator=(const ScavTrap &f)
 	_AttackDamage = f._AttackDamage;
 }
 
+void	ScavTrap::attack(const std::string& target)
+{
+	if (_HitPoints <= 0)
+	{
+		std::cout << _name + " has no hitpoints left !" << std::endl;
+		return ;
+	}
+	if (_EnergyPoints <= 0)
+	{
+		std::cout << _name + " has no energy points left !" << std::endl;
+		return ;
+	}
+	std::cout << "ScavTrap " + _name + " attacks " + target +  ", causing "
+	<< _AttackDamage << " points of damage!" << std::endl;
+	_EnergyPoints--;
+	std::cout << _name + " now has " << _HitPoints << " hitpoints and "
+		<< _EnergyPoints << " energy points" << std::endl;
+
+}
+
 void	ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap " + _name + " is now in Gate keeper mode" << std::endl;
