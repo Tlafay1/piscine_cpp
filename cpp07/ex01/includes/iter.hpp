@@ -6,13 +6,13 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 16:24:17 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/15 16:37:04 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/16 11:13:55 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template <typename T>
-void print(const T array[], size_t size)
+void iter(T array[], size_t size, void (*func)(T &t))
 {
 	for (size_t i = 0; i < size; i++)
-		std::cout << array[i] << std::endl;
+		func(array[i]);
 }
