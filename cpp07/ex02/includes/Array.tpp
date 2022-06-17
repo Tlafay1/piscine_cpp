@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 13:06:00 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/16 16:23:38 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/17 10:52:24 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ template <typename T>
 Array<T>::~Array()
 {
 	std::cout << "Array default destructor called" << std::endl;
-	delete[] _arr;
+	delete [] _arr;
 }
 
 template <typename T>
@@ -56,8 +56,10 @@ T	&Array<T>::operator [](unsigned int i)
 template <typename T>
 void	Array<T>::operator=(const Array &f)
 {
-	_arr = f._arr;
 	_size = f._size;
+	_arr = new T[_size];
+	for (size_t i = 0; i < _size; i++)
+		_arr[i] = f._arr[i];
 }
 
 #endif
