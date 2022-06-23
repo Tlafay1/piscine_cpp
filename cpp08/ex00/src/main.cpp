@@ -3,31 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timothee <timothee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 08:25:20 by timothee          #+#    #+#             */
-/*   Updated: 2022/06/18 09:11:21 by timothee         ###   ########.fr       */
+/*   Updated: 2022/06/23 08:08:01 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <vector>
+#include <list>
 
 #include "easyfind.hpp"
 
 int main(void)
 {
-	std::vector<int> v;
+	std::list<int> v;
 	for (int i = 0; i < 5; ++i)
 	{
 		v.push_back(i);
 	}
-	for (int i = 0; i < 6; ++i)
+	for (std::list<int>::iterator it = v.begin(); it != v.end(); it++)
 	{
-		std::cout << v.at(i) << std::endl;
+		std::cout << *it << std::endl;
 	}
-	std::vector<int> ptr;
+	std::list<int>::iterator ptr;
 	ptr = easyfind(v, 3);
-
+	std::cout << *ptr << std::endl;
 	return 0;
 }
