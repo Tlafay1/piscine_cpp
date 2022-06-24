@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 09:00:37 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/23 15:18:08 by tlafay           ###   ########.fr       */
+/*   Created: 2022/06/24 11:06:40 by tlafay            #+#    #+#             */
+/*   Updated: 2022/06/24 15:47:23 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 #include <iostream>
-#include <cmath>
 #include <vector>
+#include <algorithm>
+#include <list>
+#include <stack>
 
-class Span
+
+template<typename T>
+class MutantStack : public std::stack<T>
 {
+	using std::stack<T>::c;
 	public:
-		Span();
-		Span(const Span &f);
-		Span(unsigned int N);
-		~Span();
+		typedef typename std::deque<T>::iterator iterator;
+		MutantStack();
+		MutantStack(const MutantStack &f);
+		~MutantStack();
+		iterator begin() { return std::begin(c); }
+    	iterator end() { return std::end(c); }
 
-		void			addNumber(unsigned int N);
-		unsigned int	shortestSpan();
-		unsigned int	longestSpan();
-		void			addFromIts(std::vector<int>::iterator it1,
-			std::vector<int>::iterator it2);
-		void			print();
-		size_t			length();
-
-		void	operator=(const Span &f);
+		void	operator=(const MutantStack &f);
 
 	private:
-		std::vector<int>	_v;
-		unsigned int		_N;
-		size_t				_index;
+
 };
+
+#include "MutantStack.tpp"
 
 #endif

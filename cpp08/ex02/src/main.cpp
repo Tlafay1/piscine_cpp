@@ -5,31 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 09:00:15 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/23 15:46:00 by tlafay           ###   ########.fr       */
+/*   Created: 2022/06/24 11:06:43 by tlafay            #+#    #+#             */
+/*   Updated: 2022/06/24 15:47:15 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Span.hpp"
+#include "MutantStack.hpp"
 
 int main(void)
 {
-	srand(time(0));
-	Span s(100000);
-	std::vector<int> v;
-
-	for (int i = 0; i < 100000; ++i)
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
 	{
-		s.addNumber(rand());
+		std::cout << *it << std::endl;
+		++it;
 	}
-	std::cout << s.longestSpan() << std::endl;
-	std::cout << s.shortestSpan() << std::endl;
-	// s.addNumber(15);
-	// s.addFromIts(v.begin(), v.end());
-	// s.addFromIts(v.begin(), v.end());
-	// s.addNumber(5);
-	// s.addFromIts(v.begin(), v.end());
-	// s.print();
-	return 0;
+	std::stack<int> s(mstack);
+	return (0);
 }

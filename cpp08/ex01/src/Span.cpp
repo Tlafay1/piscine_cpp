@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 09:00:12 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/23 12:59:24 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/23 15:18:39 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,40 +24,42 @@ Span::Span(unsigned int N): _v(std::vector<int>(N)), _N(N), _index(0)
 
 void	Span::addNumber(unsigned int N)
 {
+	if (_index >= _N)
+		throw std::out_of_range ("Index out of range");
 	_v[_index++] = N;
 }
 
-int		Span::shortestSpan()
+unsigned int		Span::shortestSpan()
 {
-	int	min = INT_MAX;
+	if (_index < 2)
+		throw std::length_error("Span must have at least 2 elements");
+	unsigned int	min = UINT_MAX;
 	for (size_t i = 0; i < _index; i++)
 	{
 		for (size_t j = i + 1; j < _index; j++)
 		{
-			if (abs(_v[j] - _v[i]) < min)
+			if (abs((long)_v[j] - (long)_v[i]) < min)
 				min = abs(_v[j] - _v[i]);
+			if (!min)
+				return (0);
 		}
 	}
 	return min;
 }
 
-int		Span::longestSpan()
+unsigned int		Span::longestSpan()
 {
-	int	max = INT_MIN;
-	for (size_t i = 0; i < _index; i++)
-	{
-		for (size_t j = i + 1; j < _index; j++)
-		{
-			if (abs(_v[j] - _v[i]) > max)
-				max = abs(_v[j] - _v[i]);
-		}
-	}
-	return max;
+	if (_index < 2)
+		throw std::length_error("Span must have at least 2 elements");
+	return (*std::max_element(_v.begin(), _v.end())
+		- *std::min_element(_v.begin(), _v.end()));
 }
 
 void	Span::addFromIts(std::vector<int>::iterator it1,
 			std::vector<int>::iterator it2)
 {
+	if (_index + std::distance(it1, it2) >= _N)
+		throw std::out_of_range ("Index out of range");
 	_v.insert(_v.begin() + _index, it1, it2);
 	_index += std::distance(it1, it2);
 }
