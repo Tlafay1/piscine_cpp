@@ -6,11 +6,9 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:06:41 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/24 15:38:10 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/24 17:06:19 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "MutantStack.hpp"
 
 #include "MutantStack.hpp"
 
@@ -38,4 +36,16 @@ void	MutantStack<T>::operator=(const MutantStack &f)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	(void)f;
+}
+
+template <typename T>
+typename std::deque<T>::iterator MutantStack<T>::begin()
+{
+	return std::begin(c);
+}
+
+template <typename T>
+typename std::deque<T>::iterator MutantStack<T>::end()
+{
+	return std::end(c);
 }
