@@ -14,33 +14,35 @@
 
 Cat::Cat()
 {
-	std::cout << "Cat default constructor called" << std::endl;
+	// std::cout << "Cat default constructor called" << std::endl;
 	type = "Cat";
 	brain = new Brain();
 }
 
 Cat::Cat(const Cat &f)
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	// std::cout << "Cat copy constructor called" << std::endl;
 	*this = f;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat destructor called" << std::endl;
+	// std::cout << "Cat destructor called" << std::endl;
 	delete brain;
 }
 
 void	Cat::operator=(const Cat &f)
 {
-	std::cout << "Cat copy assignment operator called" << std::endl;
-	type = f.type;
-	*brain = *(f.brain);
+	Brain *tmp = new Brain();
+	// std::cout << "Cat copy assignment operator called" << std::endl;
+	this->type = f.getType();
+	*tmp = *(f.getBrain());
+	(this->brain) = (tmp);
 }
 
 void	Cat::operator=(const Animal &f)
 {
-	std::cout << "Cat Animal copy assignment operator called" << std::endl;
+	// std::cout << "Cat Animal copy assignment operator called" << std::endl;
 	this->type = f.getType();
 	*(this->brain) = *(f.getBrain());
 }
