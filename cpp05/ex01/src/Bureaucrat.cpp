@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:38:25 by tlafay            #+#    #+#             */
-/*   Updated: 2022/05/31 16:42:42 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/27 17:19:38 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ Bureaucrat::Bureaucrat(): _name(""), _grade(150)
 Bureaucrat::Bureaucrat(const std::string name, const int grade): _name(name)
 {
 	std::cout << "Bureaucrat constructor called" << std::endl;
-	_grade = grade;
-	if (_grade > 150)
+	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	if (_grade < 1)
+	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
+	_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &f): _name(f._name)
@@ -56,16 +56,16 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::upGrade()
 {
-	_grade--;
-	if (_grade < 1)
+	if (_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
+	_grade--;
 }
 
 void	Bureaucrat::downGrade()
 {
-	_grade++;
-	if (_grade > 150)
+	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
+	_grade++;
 }
 
 void	Bureaucrat::signForm(Form &f)
