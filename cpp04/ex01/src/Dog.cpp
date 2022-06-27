@@ -14,7 +14,7 @@
 
 Dog::Dog()
 {
-	//std::cout << "Dog default constructor called" << std::endl;
+	std::cout << "Dog default constructor called" << std::endl;
 	type = "Dog";
 	brain = new Brain();
 }
@@ -27,7 +27,7 @@ Dog::Dog(const Dog &f)
 
 Dog::~Dog()
 {
-	//std::cout << "Dog destructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
 	delete brain;
 }
 

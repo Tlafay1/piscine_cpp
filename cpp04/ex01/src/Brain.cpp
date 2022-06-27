@@ -14,7 +14,7 @@
 
 Brain::Brain()
 {
-	//std::cout << "Brain default constructor called" << std::endl;
+	std::cout << "Brain default constructor called" << std::endl;
 }
 
 Brain::Brain(const Brain &f)
@@ -25,7 +25,7 @@ Brain::Brain(const Brain &f)
 
 Brain::~Brain()
 {
-	//std::cout << "Brain destructor called" << std::endl;
+	std::cout << "Brain destructor called" << std::endl;
 }
 
 void	Brain::operator=(const Brain &f)

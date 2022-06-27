@@ -30,11 +30,15 @@ int	main()
 	animals[9]->getBrain()->ideas[0] = "Thought2";
 	std::cout << "Animal 9's idea 0 is "
 		<< animals[9]->getBrain()->ideas[0] << std::endl;
-	std::cout << "Animal 2's brain address is " << animals[2]->getBrain() << std::endl;
-	std::cout << "Animal 9's brain address is " << animals[9]->getBrain() << std::endl;
+	std::cout << "Animal 2's brain address is "
+		<< animals[2]->getBrain() << std::endl;
+	std::cout << "Animal 9's brain address is "
+		<< animals[9]->getBrain() << std::endl;
 	*(animals[9]) = *(animals[2]);
-	std::cout << "Animal 2's brain address is " << animals[2]->getBrain() << std::endl;
-	std::cout << "Animal 9's brain address is " << animals[9]->getBrain() << std::endl;
+	std::cout << "Animal 2's brain address is "
+		<< animals[2]->getBrain() << std::endl;
+	std::cout << "Animal 9's brain address is "
+		<< animals[9]->getBrain() << std::endl;
 	std::cout << "Animal 9's idea 0 is "
 		<< animals[9]->getBrain()->ideas[0] << std::endl;
 	for (int i = 0; i < 10; i++)

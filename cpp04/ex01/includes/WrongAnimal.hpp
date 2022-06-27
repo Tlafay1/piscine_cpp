@@ -24,8 +24,8 @@ class WrongAnimal
 
 		void	operator=(const WrongAnimal &f);
 
-		void	makeSound() const;
-		std::string		getType() const;
+		void		makeSound() const;
+		std::string	getType() const;
 
 	protected:
 		std::string	type;	

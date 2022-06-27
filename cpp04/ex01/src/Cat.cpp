@@ -14,7 +14,7 @@
 
 Cat::Cat()
 {
-	//std::cout << "Cat default constructor called" << std::endl;
+	std::cout << "Cat default constructor called" << std::endl;
 	type = "Cat";
 	brain = new Brain();
 }
@@ -27,7 +27,7 @@ Cat::Cat(const Cat &f)
 
 Cat::~Cat()
 {
-	//std::cout << "Cat destructor called" << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 	delete brain;
 }
 
