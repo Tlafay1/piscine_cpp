@@ -80,7 +80,7 @@ void	Form::beSigned(const Bureaucrat &f)
 	if (f.getGrade() <= _signGrade)
 		_signed = true;
 	else
-		throw Form::GradeTooLowException();
+		throw Form::GradeTooHighException();
 }
 
 std::ostream& operator<< (std::ostream& os, const Form& rhs)

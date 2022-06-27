@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:38:25 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/27 17:19:17 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/06/27 17:28:24 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat(): _name(""), _grade(150)
 
 Bureaucrat::Bureaucrat(const std::string name, const int grade): _name(name)
 {
-	grade = 150;
+	_grade = 150;
 	std::cout << "Bureaucrat constructor called" << std::endl;
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();

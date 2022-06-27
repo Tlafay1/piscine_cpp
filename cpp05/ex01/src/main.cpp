@@ -19,8 +19,7 @@ int main()
 	{
 		Form form("form", 1, 1);
 		Bureaucrat Bob("Bob", 1);
-		//Bob.upGrade();
-		Bob.downGrade();
+		// Bob.downGrade();
 		std::cout << Bob << std::endl;
 		Bob.signForm(form);
 		std::cout << form << std::endl;

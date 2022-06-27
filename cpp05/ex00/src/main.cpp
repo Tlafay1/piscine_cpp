@@ -16,9 +16,10 @@ int main()
 {
 	try
 	{
-		Bureaucrat Bob("Bob", 1);
-		// Bob.upGrade();
+		Bureaucrat Bob("Bob", 150);
+		Bob.upGrade();
 		std::cout << Bob.getGrade() << std::endl;
+		std::cout << Bob.getName() << std::endl;
 		std::cout << Bob << std::endl;
 	}
 	catch (std::exception &e)

@@ -19,13 +19,13 @@
 
 int main(void)
 {
-	PresidentialPardonForm	p("P form");
-	RobotomyRequestForm		r("R form");
-	ShrubberyCreationForm	s("S form");
+	PresidentialPardonForm	p("P_form");
+	RobotomyRequestForm		r("R_form");
+	ShrubberyCreationForm	s("S_form");
 
 	{
-		Bureaucrat	Bob("Bob", 12);
-		Bureaucrat	Jim("Jim", 10);
+		Bureaucrat	Bob("Bob", 1);
+		Bureaucrat	Jim("Jim", 1);
 		try
 		{
 			Bob.signForm(p);

@@ -27,7 +27,7 @@ class Bureaucrat
 		void		upGrade();
 		void		downGrade();
 
-	private:		
+	private:
 		class GradeTooHighException: public std::exception
 		{
 			public:
