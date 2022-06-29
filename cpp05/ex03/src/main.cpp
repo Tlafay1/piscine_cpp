@@ -23,7 +23,7 @@ int main(void)
 	Intern someRandomIntern;
 	Bureaucrat Bob("Bob", 1);
 	Form* rrf;
-	rrf = someRandomIntern.makeForm("weird stuff", "Bender");
+	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
 	try
 	{
 		if (!rrf)
