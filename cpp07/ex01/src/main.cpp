@@ -19,12 +19,19 @@ void	sayHello(T &t)
 	std::cout << "Hello " << t << std::endl;
 }
 
+template <typename T>
+void	increment(T &t)
+{
+	t++;
+}
+
 int main(void)
 {
 	char	a[] = "123abc";
 	int		b[] = {1, 2, 3, 10};
 	std::string names[] = {"James", "Bob", "Patrick"};
 	iter(a, 6, sayHello);
+	iter(b, 4, increment);
 	iter(b, 4, sayHello);
 	iter(names, 3, sayHello);
 	return 0;
