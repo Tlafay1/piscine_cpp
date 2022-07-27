@@ -6,7 +6,7 @@
 /*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 09:00:12 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/23 15:18:39 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/07/27 08:38:14 by tlafay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,13 @@ void	Span::addNumber(unsigned int N)
 
 unsigned int		Span::shortestSpan()
 {
-	if (_index < 2)
-		throw std::length_error("Span must have at least 2 elements");
-	unsigned int	min = UINT_MAX;
-	for (size_t i = 0; i < _index; i++)
+	int	min = std::numeric_limits<int>::max();
+	for (std::vector<int>::iterator i = _v.begin(); i != _v.end() - 1; ++i)
 	{
-		for (size_t j = i + 1; j < _index; j++)
-		{
-			if (abs((long)_v[j] - (long)_v[i]) < min)
-				min = abs(_v[j] - _v[i]);
-			if (!min)
-				return (0);
-		}
+		if (*(i + 1) - *i < min)
+			min = *(i + 1) - *i;
 	}
-	return min;
+	return (min);
 }
 
 unsigned int		Span::longestSpan()
@@ -59,10 +52,13 @@ unsigned int		Span::longestSpan()
 void	Span::addFromIts(std::vector<int>::iterator it1,
 			std::vector<int>::iterator it2)
 {
-	if (_index + std::distance(it1, it2) >= _N)
+	if (_index + std::distance(it1, it2) > _N)
 		throw std::out_of_range ("Index out of range");
-	_v.insert(_v.begin() + _index, it1, it2);
-	_index += std::distance(it1, it2);
+	for (; it1 != it2; ++it1)
+	{	
+		_v.insert(std::upper_bound( _v.begin(), _v.end(), *it1 ), *it1);
+		_index++;
+	}
 }
 
 void	Span::print()
