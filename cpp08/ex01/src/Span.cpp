@@ -17,7 +17,7 @@ Span::Span(): _v(std::vector<int>(0)), _N(0), _index(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Span::Span(unsigned int N): _v(std::vector<int>(N)), _N(N), _index(0)
+Span::Span(unsigned int N): _v(std::vector<int>(0)), _N(N), _index(0)
 {
 	std::cout << "Int constructor called" << std::endl;
 }
@@ -26,7 +26,8 @@ void	Span::addNumber(unsigned int N)
 {
 	if (_index >= _N)
 		throw std::out_of_range ("Index out of range");
-	_v[_index++] = N;
+	_v.insert(std::upper_bound( _v.begin(), _v.end(), N ), N);
+	_index++;
 }
 
 unsigned int		Span::shortestSpan()

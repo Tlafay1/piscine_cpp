@@ -16,20 +16,28 @@
 int main(void)
 {
 	srand(time(0));
-	Span s(100000);
+	Span s(10);
 	std::vector<int> v;
 
-	for (int i = 0; i < 100000; ++i)
+	for (int i = 0; i < 10; ++i)
 	{
 		s.addNumber(rand());
 	}
-	std::cout << s.longestSpan() << std::endl;
-	std::cout << s.shortestSpan() << std::endl;
-	// s.addNumber(15);
-	// s.addFromIts(v.begin(), v.end());
-	// s.addFromIts(v.begin(), v.end());
-	// s.addNumber(5);
-	// s.addFromIts(v.begin(), v.end());
-	// s.print();
+	s.print();
+	// std::cout << s.longestSpan() << std::endl;
+	// std::cout << s.shortestSpan() << std::endl;
+	// try
+	// {
+	// 	s.addNumber(15);
+	// 	s.addFromIts(v.begin(), v.end());
+	// 	s.addFromIts(v.begin(), v.end());
+	// 	s.addNumber(5);
+	// 	s.addFromIts(v.begin(), v.end());
+	// 	// s.print();
+	// }
+	// catch (std::exception &e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
 	return 0;
 }

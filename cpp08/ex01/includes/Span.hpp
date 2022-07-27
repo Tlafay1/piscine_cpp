@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlafay <tlafay@student.42.fr>              +#+  +:+       +#+        */
+/*   By: timothee <timothee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 09:00:37 by tlafay            #+#    #+#             */
-/*   Updated: 2022/06/23 15:18:08 by tlafay           ###   ########.fr       */
+/*   Updated: 2022/07/26 16:53:34 by timothee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <climits>
+#include <algorithm>
 
 class Span
 {
